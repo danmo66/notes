@@ -1,0 +1,4 @@
+add to system variables
+mysql_install_db --serviece=mysql 
+net start mysql
+mysql -u root

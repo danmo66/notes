@@ -1,0 +1,9 @@
+privacy-activity
+add mediafeature
+change timezone
+manage disk
+disable ie11, media feature, uninstall onedrive, disabl Windows Defender
+if mediafeaturepack is not installed, cannot read from cellphone, if installed, there will be gaming
+personalisation  show recently added apps,show recently openned iterms
+clean with dism ++, cclearner
+disable windows update

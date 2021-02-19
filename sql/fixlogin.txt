@@ -1,0 +1,25 @@
+apt install mariadb-client mariadb-server -y
+
+sudo mysql_secure_installation
+sudo service mysql restart
+sudo mysql -u root
+
+# after login into msyql
+use mysql;
+UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+flush privileges;
+exit;
+
+# now login with password
+sudo service mysql restart;
+mysql -u root -p
+
+
+# references https://blog.csdn.net/jlu16/article/details/82809937
+select user, host, plugin from mysql.user;
++------+-----------+-----------------------+
+| user | host      | plugin                |
++------+-----------+-----------------------+
+| root | localhost | mysql_native_password |
++------+-----------+-----------------------+
+

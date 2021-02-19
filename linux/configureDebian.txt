@@ -1,0 +1,9 @@
+# install necessy programs
+apt install gnome-core fonts-wqy-microhei fonts-wqy-zenhei firmware-atheros -y
+# change region
+dpkg-reconfire tzdata
+
+# net-install:
+#	apt install sudo perl wpasupplicant
+
+

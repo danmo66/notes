@@ -1,0 +1,13 @@
+Gtk-WARNING **: cannot open display: :0解决方法
+
+
+Xserver默认情况下不允许别的用户的图形程序的图形显示在当前屏幕上
+
+所以解决方法是：命令行退出root后，用当前账户执行命令
+
+xhost +
+1
+xhost + 是使所有用户都能访问Xserver
+xhost + ip 是使所有ip用户都能访问Xserver
+
+执行完以后再在命令行内登录root，就能用eog打开图片了

@@ -1,0 +1,69 @@
+建议先更新一下：
+
+sudo apt update
+
+然后使用apt命令安装DEB软件包：
+
+sudo apt install ./jdk-14_linux-x64_bin.deb
+
+出现提示时，同意安装，即按y键：
+
+Reading package lists... Done
+
+Building dependency tree
+
+Reading state information... Done
+
+Note, selecting 'jdk-14' instead of './jdk-14_linux-x64_bin.deb'
+
+The following additional packages will be installed:
+
+libasound2 libasound2-data
+
+Suggested packages:
+
+libasound2-plugins alsa-utils
+
+The following NEW packages will be installed:
+
+jdk-14 libasound2 libasound2-data
+
+0 upgraded, 3 newly installed, 0 to remove and 53 not upgraded.
+
+Need to get 421 kB/166 MB of archives.
+
+After this operation, 1,824 kB of additional disk space will be used.
+
+Do you want to continue? [Y/n] y
+
+配置Java环境：
+
+cat <<EOF | sudo tee /etc/profile.d/jdk14.sh
+
+export JAVA_HOME=/usr/lib/jvm/jdk-14.0.1/
+
+export PATH=\$PATH:\$JAVA_HOME/bin
+
+EOF
+
+
+or create jdk14.sh
+
+export JAVA_HOME=/usr/lib/jvm/jdk-14.0.1/
+export PATH=$PATH:$JAVA_HOME/bin
+
+要检查计算机上是否安装了Java SE 14，请键入以下命令：
+
+chmod 755 /etc/profile.d/jdk14.sh
+
+$ source /etc/profile.d/jdk14.sh
+
+$ java -version
+
+java version "14" 2020-03-17
+
+Java(TM) SE Runtime Environment (build 14+36-1461)
+
+Java HotSpot(TM) 64-Bit Server VM (build 14+36-1461, mixed mode, sharing)
+
+这说明已经安装上了。

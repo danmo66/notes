@@ -1,0 +1,11 @@
+run order:
+	FROM, including JOINs
+	WHERE
+	GROUP BY
+	HAVING
+	WINDOW functions
+	SELECT
+	DISTINCT
+	UNION
+	ORDER BY
+	LIMIT and OFFSET

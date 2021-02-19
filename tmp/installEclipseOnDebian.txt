@@ -1,0 +1,77 @@
+1.首先得先下载JDK和eclipse
+jdk下载网址：http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+https://repo.huaweicloud.com/java/jdk/
+eclipse下载网址：http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/heliossr1/
+
+2.安装JDK
+2.1解压JDK
+将JDK解压到/opt/jvm文件夹下，所以得先在/opt下新建一个jvm文件夹，而要在opt文件夹下新建文件夹需要获取root权限，所以需要sudo指令。在/opt下新建文件夹jvm的指令:sudo mkdir /opt/jvm
+
+输入指令之后，需要输入密码才能够执行，输入密码的过程是不会显示出来的，直接输入密码按回车就可以了
+创建完文件夹之后，需要将JDK复制到jvm文件夹下
+采用的指令为:mv jdk-8u151-linux-x64.tar.gz /opt/jvm（得先用su指令进入root权限) 
+解压JDK到/opt/jvm目录下.
+首先得先进入到/opt/jvm目录下，通过指令：cd /opt/jvm
+然后解压文件：tar zxvf jdk-8u121-linux-x64.tar.gz -C /opt
+
+
+配置JDK的环境变量。
+(1)打开 /etc/profile,打开指令：sudo vi /etc/profile。通过这条指令之后，会进入vim编辑器，要在vim编辑器里面插入数据需要使用i指令，vim的常用指令如下：
+光标运动: h,j , k, l （上/下/左/右）
+删除字符: x
+删除行 : dd
+模式退出 : Esc,Insert（或者i）
+退出编辑器 : q
+强制退出不保存: q!
+运行shell命令 :sh（使用exit返回vi编辑器）
+保存文件 :w
+文本查找 : /
+(2)打开文件后，在文件末尾加入以下语句,每条语句之间要空一行
+export JAVA_HOME=/opt/jvm/jdk1.8.0_121
+
+export JRE_HOME=${JAVA_HOME}/jre
+
+export CLASSPATH=.:＄{JAVA_HOME}/lib:${JRE_HOME}/lib
+
+export PATH=＄{JAVA_HOME}/:$PATH
+
+输入这个内容后需要先按ESC，再按“：”，最后输入wq回车，就能够退出保存
+(3)查看JDK是否安装成功
+先输入 source /etc/profile
+然后输入 java -version
+安装成功后会显示jdk版本
+
+
+3.安装eclipse
+3.1将eclipse解压到/opt文件夹下
+首先，用su获取root权限，然后将eclipse剪切到/opt文件夹下
+
+然后，解压eclipse到/opt文件夹下，指令为：sudo tar zxvf eclipse-inst-linux64.tar.gz -C /opt/
+
+3.2创建eclipse桌面快捷图标
+首先输入指令： cd /usr/share/applications
+然后输入指令： sudo vim eclipse.desktop
+
+最后将下面的代码复制到文件中：
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse
+Comment=Eclipse
+Exec=/opt/eclipse/eclipse
+Icon=/opt/eclipse/icon.xpm
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=Application;Development;
+其中“Exec=”后面为eclipse安装目录下的eclipse程序的位置路径，“Icon=”后面为eclipse安装目录下的图标图片的路径
+
+3.3将eclipse变为可执行文件
+指令为：sudo chmod u+x eclipse.desktop
+
+3.4 在/usr/share/applications目录下将Eclipse图标复制到桌面
+
+
+3.5点击图标下载相关的eclipse版本
+————————————————
+版权声明：本文为CSDN博主「spenglu」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/u013216156/java/article/details/78677740

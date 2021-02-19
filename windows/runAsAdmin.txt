@@ -1,0 +1,5 @@
+from powershell:
+Start-Process powershell -verb runAs
+
+from cmd:
+powershell "Start-Process powershell -verb runAs"

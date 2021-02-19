@@ -1,0 +1,32 @@
+init:
+    #  add global user config
+    git config --global user.name username
+    git config --global user.email emailAddr
+
+    # add repository user config
+    git config user.name username
+    git config user.email emailAddr
+
+check user info:
+    git config user.name
+    git config --list
+
+ignore file permission change
+    git config core.filemode false
+
+use ssh:
+    git remote remove origin
+    git remote add origin git@github.com:username/repo
+
+use http
+    git remote remove origin
+    git remote add origin https://github.com/username/repo
+    # optional
+    git pull origin main
+    git branch --set-upstream-to=origin/main main
+
+store password:
+    # next time when you filled in passwords, 
+    # credential is stored at ~/.git-credentials
+    git config credential.helper store
+

@@ -1,0 +1,31 @@
+Ctrl+A	Moves the cursor to the beginning of the line.
+Ctrl+B	Moves the cursor backward one character.
+Ctrl+C	Cancels the currently running command.
+Ctrl+D	Logs out of the current session.
+Ctrl+E	Moves the cursor to the end of the line.
+Ctrl+F	Moves the cursor forward one character.
+Ctrl+H	Erase one character. Similar to pressing backspace.
+Ctrl+P	Paste previous line(s).
+Ctrl+R	Allows you to search for a previously used command or switch.
+Ctrl+S	Stops all output on-screen (XOFF).
+Ctrl+Q	Turns all output stopped on-screen back on (XON). Also, closes an application window.
+Ctrl+U	Erases the complete line.
+Ctrl+W	Deletes the last word typed. For example, if you typed mv file1 file2, this shortcut would delete file2.
+Ctrl+Z	Cancels the current operation, moves back a directory or takes the current operation and moves it to the background. See bg command for additional information about background.
+Ctrl+Alt+D	Minimizes all application windows and shows the desktop.
+Ctrl+Alt+L	Locks the screen.
+Ctrl+Alt+T	Opens a new terminal window.
+Ctrl+Alt+Up/Down arrow	Switches between workspaces (if you are a power user and use workspaces).
+Alt+F2	Open the console to run a command (must be a power user).
+Arrow Up/Down	Scroll through previously used commands.
+Command line shortcuts
+You may find the following command line shortcuts helpful. You may also want to try using the alias command, which allows you to create shortcuts for long or frequently-used commands.
+
+Note
+Not all of the following command line shortcuts are universally compatible with every variant of Unix and Linux.
+
+ ~	Moves to the user's home directory.
+!!	Repeats the line last entered at the shell.
+!$	Repeats the last argument for the command last used. See history command for previous commands.
+reset	Resets the terminal if the terminal screen is not displaying correctly.
+shutdown -h now	Remotely or locally shuts the system down.

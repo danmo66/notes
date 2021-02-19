@@ -1,0 +1,6 @@
+debian10 to allow root login
+first set up passwd
+sudo passwd
+then edit the /etc/securetty
+add tty1:tty2:tty3:tty4:tty5:tty6 behind
+all set to go

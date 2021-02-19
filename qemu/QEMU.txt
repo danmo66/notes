@@ -1,0 +1,4 @@
+//create disk image
+qemu-img.exe create -f qcow2 hda.qcow 8G
+//start system with disk, iso
+C:\Program Files\qemu> qemu-system-x86_64w.exe -m 2048M -hda d:\debian.qcow2 -cdrom d:\NetbootCD.iso

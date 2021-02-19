@@ -1,0 +1,42 @@
+# compile script
+sudo apt-get install -y libncurses5-dev libncurses5 libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev ruby-dev lua5.1 lua5.1-dev checkinstall
+
+    # rm -rf ~/vim82
+    # git clone https://gitee.com/chxuan/vim82.git ~/vim82
+    cd ~/vim
+    ./configure --with-features=huge \
+        --enable-multibyte \
+        --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+        --enable-gui=gtk3 \
+        --prefix=/usr/local
+    make
+    sudo checkinstall
+
+
+
+
+# --prefix=/usr/local does not overwrite some pack in system
+# --prefix=/usr overwrites some pack in system
+#other option
+./configure --with-features=huge \
+            --enable-multibyte \
+            --enable-rubyinterp=yes \
+            --enable-python3interp=yes \
+            --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+            --enable-perlinterp=yes \
+            --enable-luainterp=yes \
+            --enable-gui=gtk2 \
+            --enable-cscope \
+            --prefix=/usr/local \
+            --enable-fail-if-missing
+
+# install 
+    make install to install src
+    dpkg -i --force-overwrite *.deb to install deb package
+
+# reference
+
+	https://blog.csdn.net/ecnu_lzj/article/details/104475139
+	https://www.jianshu.com/p/3e0c242310d3
+	https://github.com/chxuan/vimplus/blob/master/install.sh
+	https://blog.csdn.net/anljf/article/details/7254601
