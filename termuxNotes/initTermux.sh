@@ -13,3 +13,8 @@ checkStoragePermission(){
         exit
     fi
 }
+
+# remove storage dir if exists
+if [ -d ~/storage ];then
+    rm -rf ~/storage
+fi
