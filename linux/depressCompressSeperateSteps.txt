@@ -1,3 +1,0 @@
-gzip -dc file.tar.gz | tar -xf -
-
-tar cvf - file | gzip > file.tar.gz

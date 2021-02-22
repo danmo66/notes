@@ -1,0 +1,7 @@
+# no suggests
+    --no-install-suggests
+# download only
+    -d
+# clean download deb
+    apt clean
+
