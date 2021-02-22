@@ -104,7 +104,7 @@ cleanHistory(){
     fi
 }
 
-# clear all but keep coreutils, to replace original 'rm' command
+# clear all but keep coreutils, get 'rm' effect
 cleanAllButKeepCoreFunctions(){
     # clean files dir
     cd $termuxRoot/files
