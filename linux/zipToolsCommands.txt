@@ -17,3 +17,9 @@
     unxz < file.tar.xz > file.tar
     # equivalent to:
     xz -dc < file.tar.xz > file.tar
+
+# chain
+    time tar -cvf - vim | gzip -cv | bzip2 -cv  | xz -vv -T0 > target
+    ls -lh
+    xz -dc target | bzip2 -dc | gzip -dc | tar -xvf -
+
