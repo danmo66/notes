@@ -54,9 +54,9 @@ restore(){
         read file
     done
     echo "start restoring!"
-    # use seperate steps is more compatible for lower version of toybox
+    # use seperated steps is more compatible for lower version of toybox
     if [ "$mode"x = "FAILSAFE"x ];then
-        gzip -dc $backupDir/$file | tar -xvf - -C $termuxRoot/files
+        gzip -d -c $backupDir/$file | tar -xvf - -C $termuxRoot/files
     fi
     if [ "$mode"x = "NORMAL"x ];then
         cleanAllButkeepCoreFunctions
