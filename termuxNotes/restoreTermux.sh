@@ -57,8 +57,7 @@ backup(){
         cd $termuxRoot/files
         tar -czvf $backupDir/$name ./home ./usr
         if [ $? -ne 0 ];then
-            echo "make sure you are running in default environment"
-            echo "not in other proot-distros"
+            echo "make sure you are running in termux default environment"
             exit 1
         fi
         echo -e "\033[0;32m backing up finished! \033[0m"
