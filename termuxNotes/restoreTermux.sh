@@ -104,7 +104,7 @@ cleanHistory(){
     fi
 }
 
-# clear all but keep core functions, get 'rm' alike effect
+# clean all but keep core functions, get 'rm' alike effect
 cleanAllButKeepCoreFunctions(){
     # clean files dir
     cd $termuxRoot/files
@@ -115,7 +115,7 @@ cleanAllButKeepCoreFunctions(){
     # clean bin dir
     cd $termuxRoot/files/usr/bin
     find * | grep -vw '\(coreutils\|rm\|xargs\|find\|grep\|tar\|gzip\)' | xargs rm -rf
-    # clear lib dir
+    # clean lib dir
     cd $termuxRoot/files/usr/lib
     find * | grep -vw '\(libandroid-glob.so\|libtermux-exec.so\|libiconv.so\|libandroid-support.so\|libgmp.so\)' | xargs rm -rf
     # clean none exact utils, aggressively
