@@ -84,7 +84,7 @@ restore(){
         gzip -d -c $backupDir/$file | tar -xvf - -C $termuxRoot/files
     fi
     if [ "$mode"x = "NORMAL"x ];then
-        cleanAllButkeepCoreFunctions
+        cleanAllButKeepCoreFunctions
         tar -xzvf $backupDir/$file -C $termuxRoot/files
     fi
     echo -e "\033[0;32m restoring finished! \033[0m"
@@ -105,8 +105,8 @@ cleanHistory(){
 }
 
 # clear all but keep coreutils, to replace original 'rm' command
-cleanAllButkeepCoreFunctions(){
-    # remove files dir
+cleanAllButKeepCoreFunctions(){
+    # clean files dir
     cd $termuxRoot/files
     find * | grep -vw 'usr' | xargs rm -rf
     # clean $PREFIX dir
