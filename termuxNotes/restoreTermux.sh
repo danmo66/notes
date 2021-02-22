@@ -18,14 +18,33 @@ fi
 checkStoragePermission(){
     if [ ! -w /storage/emulated/0 ];then
         echo "Permission denied"
-        exit
+        exit 1
+    fi
+}
+# check if BackupDir exists
+checkBackupDir(){
+    if [ ! -d $backupDir ];then
+        echo "backupDir: "
+        echo $backupDir
+        echo " not exists"
+        # ask if to create dir
+        echo "creat backupDir? y/n"
+        read answer
+        if [ "$answer"x = "y"x ];then 
+            mkdir -p $backupDir
+            if [ $? -ne 0 ];then
+                echo "create dir failed!"
+                exit 1
+            fi
+        else 
+            echo "exiting..." && exit 1
+        fi
     fi
 }
 backup(){
     # check if in NORMAL MODE
     # backup will fail when other linux system is installed, force running in NORMAL mode
     if [ "$mode"x = "NORMAL"x ];then 
-        echo "now running backup"
         echo "type the name for backup"
         echo "if empty will use termux.tar.gz"
         read name
@@ -39,14 +58,19 @@ backup(){
         tar -czvf $backupDir/$name ./home ./usr
         echo -e "\033[0;32m backing up finished! \033[0m"
     else 
-        echo "backup not supported in [FAILSAFE MODE], exiting..."
+        echo "backup is not supported in [FAILSAFE MODE], exiting..."
     fi
 }
 
 restore(){
-    echo "now running restore"
-    echo "choose a backup file:"
-    ls $backupDir
+    # check if backupDir is empty
+    if [ $(ls -l $backupDir | grep "^-" | wc -l) -eq 0 ];then
+        # empty
+        echo "backupDir is empty! exiting..." && exit 1
+    else
+        echo "choose a backup file:"
+        ls $backupDir
+    fi
     read file
     while [ ! -f $backupDir/$file ]
     do
@@ -103,6 +127,7 @@ cleanAllButkeepCoreFunctions(){
 }
 # start
 checkStoragePermission
+checkBackupDir
 echo "this script will backup/restore termux"
 echo "choose to backup or restore"
 echo "b to backup, r to restore"
