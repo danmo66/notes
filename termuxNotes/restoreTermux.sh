@@ -80,6 +80,7 @@ restore(){
     echo "start restoring!"
     # use seperated steps is more compatible for lower version of toybox
     if [ "$mode"x = "FAILSAFE"x ];then
+        rm -rf $termuxRoot/files/*
         gzip -d -c $backupDir/$file | tar -xvf - -C $termuxRoot/files
     fi
     if [ "$mode"x = "NORMAL"x ];then
