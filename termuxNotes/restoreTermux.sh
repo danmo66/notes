@@ -113,18 +113,24 @@ cleanAllButkeepCoreFunctions(){
     find * | grep -vw '\(bin\|lib\)' | xargs rm -rf
 # clean bin dir
     cd $termuxRoot/files/usr/bin
-    find * | grep -vw '\(coreutils\|rm\|ls\|dash\|xargs\|find\|grep\|tar\|gzip\)' | xargs rm -rf
+    find * | grep -vw '\(coreutils\|rm\|xargs\|find\|grep\|tar\|gzip\)' | xargs rm -rf
 # clear lib dir
     cd $termuxRoot/files/usr/lib
-    find * | grep -vw '\(libandroid-glob.so\|libtermux-exec.so\|libiconv.so\|libandroid-support.so\)' | xargs rm -rf
+    find * | grep -vw '\(libandroid-glob.so\|libtermux-exec.so\|libiconv.so\|libandroid-support.so\|libgmp.so\)' | xargs rm -rf
 # clean none exact utils, aggressively
+    cd $termuxRoot/files/usr/bin
+    rm coreutils grep xargs find rm ../lib/libgmp.so ../lib/libandroid-support.so
+    #
+#     cd $termuxRoot/files/usr/lib
+#     find * | grep -vw '\(libandroid-glob.so\|libtermux-exec.so\|libiconv.so\|libandroid-support.so\)' | xargs rm -rf
 
 # dependencies:
 # ls libandroid-support.so libgmp.so
+# rm libgmp.so
 # tar libandroid-glob libtermux-exec.so libiconv.so
 #find * | grep -v '\(libandroid-glob.so\|libtermux-exec.so\|libiconv.so\|libandroid-support.so\|libgmp.so\)' | xargs rm -rf
-
 }
+
 # start
 checkStoragePermission
 checkBackupDir
