@@ -7,10 +7,10 @@ termuxRoot="/data/data/com.termux"
 # check Session mode
 mode="NULL"
 if command -v termux-info >/dev/null 2>&1; then 
-    echo '[NORMAL MODE]' 
+    echo '[NORMAL SESSION]' 
     mode="NORMAL"
 else 
-    echo '[FAILSAFE MODE]' 
+    echo '[FAILSAFE SESSION]' 
     mode="FAILSAFE"
 fi
 
@@ -42,7 +42,7 @@ checkBackupDir(){
     fi
 }
 backup(){
-    # check if in NORMAL MODE
+    # check if in NORMAL SESSION
     # backup will fail when other linux system is installed, force running in NORMAL mode
     if [ "$mode"x = "NORMAL"x ];then 
         echo "type the name for backup"
@@ -62,7 +62,7 @@ backup(){
         fi
         echo -e "\033[0;32m backing up finished! \033[0m"
     else 
-        echo "backup is not supported in [FAILSAFE MODE], exiting..."
+        echo "backup is not supported in [FAILSAFE SESSION], exiting..."
     fi
 }
 
