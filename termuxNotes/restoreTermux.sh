@@ -4,7 +4,7 @@
 backupDir="/storage/emulated/0/termux/backups"
 termuxRoot="/data/data/com.termux"
 
-# check Session session
+# check Session mode
 session="NULL"
 if command -v termux-info >/dev/null 2>&1; then 
     echo '[NORMAL SESSION]' 
@@ -43,7 +43,7 @@ checkBackupDir(){
 }
 backup(){
     # check if in NORMAL SESSION
-    # backup will fail when other linux system is installed, force running in NORMAL session
+    # backup will fail when other linux system is installed, force running in NORMAL SESSION
     if [ "$session"x = "NORMAL"x ];then 
         echo "type the name for backup"
         echo "if empty will use termux.tar.gz"
