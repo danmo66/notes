@@ -4,7 +4,7 @@
 backupDir="/storage/emulated/0/termux/backups"
 termuxRoot="/data/data/com.termux"
 
-# check Session mode
+# check session mode
 session="NULL"
 if command -v termux-info >/dev/null 2>&1; then 
     echo '[NORMAL SESSION]' 
