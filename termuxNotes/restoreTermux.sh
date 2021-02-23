@@ -4,14 +4,14 @@
 backupDir="/storage/emulated/0/termux/backups"
 termuxRoot="/data/data/com.termux"
 
-# check Session mode
-mode="NULL"
+# check Session session
+session="NULL"
 if command -v termux-info >/dev/null 2>&1; then 
     echo '[NORMAL SESSION]' 
-    mode="NORMAL"
+    session="NORMAL"
 else 
     echo '[FAILSAFE SESSION]' 
-    mode="FAILSAFE"
+    session="FAILSAFE"
 fi
 
 # check storage permission
@@ -43,8 +43,8 @@ checkBackupDir(){
 }
 backup(){
     # check if in NORMAL SESSION
-    # backup will fail when other linux system is installed, force running in NORMAL mode
-    if [ "$mode"x = "NORMAL"x ];then 
+    # backup will fail when other linux system is installed, force running in NORMAL session
+    if [ "$session"x = "NORMAL"x ];then 
         echo "type the name for backup"
         echo "if empty will use termux.tar.gz"
         read name
@@ -83,11 +83,11 @@ restore(){
     done
     echo "start restoring!"
     # use seperated steps is more compatible for lower version of toybox
-    if [ "$mode"x = "FAILSAFE"x ];then
+    if [ "$session"x = "FAILSAFE"x ];then
         rm -rf $termuxRoot/files/*
         gzip -d -c $backupDir/$file | tar -xvf - -C $termuxRoot/files
     fi
-    if [ "$mode"x = "NORMAL"x ];then
+    if [ "$session"x = "NORMAL"x ];then
         cleanAllButKeepCoreFunctions
         tar -xzvf $backupDir/$file -C $termuxRoot/files
     fi
